@@ -1,0 +1,16 @@
+<h1 class="title">
+  <%= @story.title %>
+</h1>
+<p>
+  <%= link_to 'Characters', story_characters_path(story_id: @story.id) %>
+</p>
+<br>
+<p>
+  <%= link_to 'Edit', edit_story_path(id: @story.id) %>
+</p>
+<p>
+  <%= link_to('Delete', story_path(id: @story.id), method: :delete) %>
+</p>
+<p>
+  <%= link_to 'Back', stories_path %>
+</p>

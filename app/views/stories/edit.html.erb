@@ -1,0 +1,7 @@
+<h1> Edit Story </h1>
+<%= form_for @story do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: @story.title %>
+
+  <%= f.submit %>
+<% end %>

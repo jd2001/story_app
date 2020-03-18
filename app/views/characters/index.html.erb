@@ -1,0 +1,16 @@
+<h1> Character Index </h1>
+<p>
+  <% @characters.each do |c| %>
+    <p>
+    <%= link_to "#{c.name}", story_character_path(id: c.id, story_id: @story.id) %>
+    </p>
+  <% end %>
+</p>
+
+<br>
+
+<p>
+  <%= link_to 'New Character', new_story_character_path %>
+<p>
+  <%= link_to 'Back', story_path(id: @story.id) %>
+</p>

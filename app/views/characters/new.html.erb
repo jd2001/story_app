@@ -1,0 +1,13 @@
+<h1> New Character </h1>
+<%= form_for :character, url: story_characters_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+
+  <%= f.submit %>
+<% end %>

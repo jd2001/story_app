@@ -1,0 +1,13 @@
+<h1> Edit Character </h1>
+<%= form_for @character, url: story_character_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: @character.name %>
+
+  <%= f.label :gender %>
+  <%= f.text_field :gender, placeholder: @character.gender %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age, placeholder: @character.age %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>
+  <%= @character.name %>
+</h1>
+<p>
+  Age: <%= @character.age %>
+</p>
+<p>
+  Gender: <%= @character.gender %>
+</p>
+<p>
+  <%= link_to('Delete', story_character_path(story_id: @character.story_id, id: @character.id), method: :delete) %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_story_character_path(story_id: @character.story_id, id: @character.id) %>
+</p>
+<p>
+  <%= link_to('Back', story_characters_path(story_id: @character.story_id)) %>
+</p>
