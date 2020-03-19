@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     @location = @story.locations.create(location_params)
     @location.save
 
-    redirect_to story_location_path(id: @location.id, story_id: @story.id)
+    redirect_to edit_story_location_path(id: @location.id, story_id: @story.id)
   end
 
   def show
@@ -42,7 +42,7 @@ class LocationsController < ApplicationController
   end
 
   def location_params
-    params.require(:location).permit(:name)
+    params.require(:location).permit(:name, :location_type, :population)
   end
 
 end

@@ -3,6 +3,12 @@
 </h1>
 
 <p>
+  <% if @location.location_type == "Planet" %>
+    Population: <%= @location.population %>
+  <% end %>
+</p>
+
+<p>
   <%= link_to('Delete', story_location_path(story_id: @location.story_id, id: @location.id), method: :delete) %>
 </p>
 <p>

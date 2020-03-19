@@ -5,6 +5,11 @@
     <%= f.text_field :name, placeholder: @location.name %>
   </p>
   <p>
+    <% if @location.location_type == "Planet" %>
+      <%= f.label :population %>
+      <%= f.text_field :population, placeholder: @location.population %>
+    <% end %>
+  <p>
     <%= f.submit %>
   </p>
 <% end %>
