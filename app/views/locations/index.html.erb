@@ -1,0 +1,16 @@
+<h1> Locations Index </h1>
+<p>
+  <% @locations.each do |l| %>
+    <p>
+    <%= link_to "#{l.name}", story_location_path(id: l.id, story_id: @story.id) %>
+    </p>
+  <% end %>
+</p>
+
+<br>
+
+<p>
+  <%= link_to 'New Location', new_story_location_path %>
+<p>
+  <%= link_to 'Back', story_path(id: @story.id) %>
+</p>

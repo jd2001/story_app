@@ -1,0 +1,13 @@
+<h1>
+  <%= @location.name %>
+</h1>
+
+<p>
+  <%= link_to('Delete', story_location_path(story_id: @location.story_id, id: @location.id), method: :delete) %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_story_location_path(story_id: @location.story_id, id: @location.id) %>
+</p>
+<p>
+  <%= link_to('Back', story_locations_path(story_id: @location.story_id)) %>
+</p>

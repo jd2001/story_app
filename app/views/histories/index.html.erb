@@ -1,0 +1,16 @@
+<h1> History Index </h1>
+<p>
+  <% @histories.each do |h| %>
+    <p>
+    <%= link_to "#{h.title}", story_history_path(id: h.id, story_id: @story.id) %>
+    </p>
+  <% end %>
+</p>
+
+<br>
+
+<p>
+  <%= link_to 'New History', new_story_history_path %>
+<p>
+  <%= link_to 'Back', story_path(id: @story.id) %>
+</p>

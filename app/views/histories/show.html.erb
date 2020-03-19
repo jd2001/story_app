@@ -1,0 +1,17 @@
+<h1>
+  <%= @history.title %>
+</h1>
+
+<p>
+ <%= @history.body %>
+</p>
+
+<p>
+  <%= link_to('Delete', story_history_path(story_id: @history.story_id, id: @history.id), method: :delete) %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_story_history_path(story_id: @history.story_id, id: @history.id) %>
+</p>
+<p>
+  <%= link_to('Back', story_histories_path(story_id: @history.story_id)) %>
+</p>

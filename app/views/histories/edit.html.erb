@@ -1,0 +1,14 @@
+<h1> Edit History </h1>
+<%= form_for @history, url: story_history_path do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body, placeholder: @history.body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -4,6 +4,15 @@
 <p>
   <%= link_to 'Characters', story_characters_path(story_id: @story.id) %>
 </p>
+
+<p>
+  <%= link_to 'Locations', story_locations_path(story_id: @story.id) %>
+</p>
+
+<p>
+  <%= link_to 'History', story_histories_path(story_id: @story.id) %>
+</p>
+
 <br>
 <p>
   <%= link_to 'Edit', edit_story_path(id: @story.id) %>

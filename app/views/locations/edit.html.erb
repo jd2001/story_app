@@ -1,0 +1,10 @@
+<h1> Edit Location </h1>
+<%= form_for @location, url: story_location_path do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: @location.name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
