@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_170213) do
+ActiveRecord::Schema.define(version: 2020_04_07_143658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,13 +45,40 @@ ActiveRecord::Schema.define(version: 2020_03_19_170213) do
     t.index ["story_id"], name: "index_locations_on_story_id"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "first_character_id"
+    t.bigint "second_character_id"
+    t.text "description"
+    t.index ["first_character_id"], name: "index_relationships_on_first_character_id"
+    t.index ["second_character_id"], name: "index_relationships_on_second_character_id"
+  end
+
   create_table "stories", force: :cascade do |t|
     t.text "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_stories_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "characters", "stories"
   add_foreign_key "histories", "stories"
   add_foreign_key "locations", "stories"
+  add_foreign_key "relationships", "characters", column: "first_character_id"
+  add_foreign_key "relationships", "characters", column: "second_character_id"
+  add_foreign_key "stories", "users"
 end

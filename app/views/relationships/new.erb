@@ -1,0 +1,13 @@
+<% @characters = Character.where(story_id: @character.story_id) %>
+
+<h1> New Relationship </h1>
+<%= form_for :relationship, url: story_character_relationships_path do |f| %>
+<p>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.select :second_character_id, @characters.map {|c| [c.name, c.id]} %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

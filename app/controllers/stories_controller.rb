@@ -2,17 +2,21 @@ class StoriesController < ApplicationController
 before_action :find_story, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stories = Story.all
+    @stories = Story.where(user_id: current_user.id)
   end
 
   def new
+    @story = current_user.stories.build
   end
 
   def create
-    @story = Story.new(story_params)
-    @story.save
+    @story = current_user.stories.build(story_params)
 
-    redirect_to @story
+    if @story.save
+      redirect_to @story
+    else
+      render 'new'
+    end
   end
 
   def show

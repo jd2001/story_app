@@ -7,6 +7,13 @@
 <p>
   Gender: <%= @character.gender %>
 </p>
+
+<p>
+  <%= link_to "New Relationship", new_story_character_relationship_path(story_id: @character.story_id, character_id: @character.id) %>
+</p>
+
+<br>
+
 <p>
   <%= link_to('Delete', story_character_path(story_id: @character.story_id, id: @character.id), method: :delete) %>
 </p>
