@@ -1,0 +1,10 @@
+<h1> Edit Relationship </h1>
+<%= form_for @relationship, url: story_character_relationship_path do |f| %>
+<p>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

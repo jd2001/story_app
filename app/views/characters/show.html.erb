@@ -7,7 +7,15 @@
 <p>
   Gender: <%= @character.gender %>
 </p>
-
+<p>
+  <% @relationships.each do |r| %>
+    <p>
+      <%= r.other_character(@character).name %>
+      <%= r.description %>
+      <%= link_to "edit", edit_story_character_relationship_path(story_id: @character.story_id, character_id: r.first_character_id, id: r.id) %>
+      <%= button_to "delete", story_character_relationship_path(story_id: @character.story_id, character_id: r.first_character_id, id: r.id), method: :delete %>
+    </p>
+  <% end %>
 <p>
   <%= link_to "New Relationship", new_story_character_relationship_path(story_id: @character.story_id, character_id: @character.id) %>
 </p>

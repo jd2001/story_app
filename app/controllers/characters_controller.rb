@@ -18,6 +18,7 @@ before_action :find_character, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+    @relationships = Relationship.where(first_character_id: @character.id).or(Relationship.where(second_character_id: @character.id))
   end
 
   def edit
